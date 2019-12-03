@@ -11,7 +11,7 @@
 				"duckDuckGo": "https://duckduckgo.com/",
 				"bing": "https://www.bing.com/search",
 				"ask": "https://www.ask.com/web"
-			};
+			}
 
 			let formSearch = document.getElementById("searchForm");
 			formSearch.setAttribute("action", actions[engineSelection.value] );
@@ -22,7 +22,29 @@
     window.addEventListener("load", function(){
 		// TODO: register the handler
 		let form = document.querySelector("form");
-		form.addEventListener("submit", setSearchEngine);
+
+		form.addEventListener("submit", function(){
+			//BONUS: Form Validation
+			let searchText = document.querySelector("input[name=q]");
+			let engineGoogle = document.getElementById("engineGoogle");
+			let engineDuckDuckGo = document.getElementById("engineDuckDuckGo");
+			let engineBing = document.getElementById("engineBing");
+			let engineAsk = document.getElementById("engineAsk");
+
+			if (searchText.value === ""){
+				alert("Search field cannot be empty!");
+				event.preventDefault();
+			}
+
+			if (!engineGoogle.checked && !engineDuckDuckGo.checked && !engineBing.checked && !engineAsk.checked){
+				alert("Please select a search engine.");
+				event.preventDefault();
+			}	
+			//END BONUS: Form Validation
+			
+			setSearchEngine();
+
+		});
 
     });
 	</script>
@@ -33,10 +55,10 @@
 	<form id="searchForm">
 		<!-- TODO: add form elements -->
 		<label>Search<input type="text" name="q"/></label>
-		<label>Google<input type="radio" name="engine" value="google"/></label>
-		<label>DuckDuckGo<input type="radio" name="engine" value="duckDuckGo"/></label>
-		<label>Bing<input type="radio" name="engine" value="bing"/></label>
-		<label>Ask<input type="radio" name="engine" value="ask"/></label>
+		<label>Google<input type="radio" name="engine" value="google" id="engineGoogle"/></label>
+		<label>DuckDuckGo<input type="radio" name="engine" value="duckDuckGo" id="engineDuckDuckGo"/></label>
+		<label>Bing<input type="radio" name="engine" value="bing" id="engineBing"/></label>
+		<label>Ask<input type="radio" name="engine" value="ask" id="engineAsk"/></label>
 		<button>Submit</button>
 
 
