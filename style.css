@@ -1,0 +1,12 @@
+/* BONUS: Styling */
+body {
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    padding: 5px;
+}
+
+button {
+    background-color: red;
+    color:white;
+}
