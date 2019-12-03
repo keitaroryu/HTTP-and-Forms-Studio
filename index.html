@@ -21,11 +21,9 @@
 		};
 
     window.addEventListener("load", function(){
-		// TODO: register the handler
 		let form = document.querySelector("form");
-
-		form.addEventListener("submit", function(){
 			//BONUS: Form Validation
+		form.addEventListener("submit", function(){
 			let searchText = document.querySelector("input[name=q]");
 			let engineGoogle = document.getElementById("engineGoogle");
 			let engineDuckDuckGo = document.getElementById("engineDuckDuckGo");
@@ -41,11 +39,11 @@
 				alert("Please select a search engine.");
 				event.preventDefault();
 			}	
-			//END BONUS: Form Validation
-
-			setSearchEngine();
-
 		});
+		//END BONUS: Form Validation
+
+		// TODO: register the handler
+		form.addEventListener("submit", setSearchEngine);
 
     });
 	</script>
